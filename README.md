@@ -1,27 +1,30 @@
 :new: [2024-07-30] upload base resource code
-# ECDM {ignore=true}
+# ECDM
 This is the official repository of our work: Data Generation Scheme for Thermal Modality with Edge-Guided Adversarial Conditional Diffusion Model (ACM MM'24)
-[Guoqing Zhu](https://githubg.com/lengmo1996), [Honghu Pan](), [Qaing Wang](), [Chao Tian](), [Chao Yang](), [Zhenyu He](),
+
+[Guoqing Zhu](https://githubg.com/lengmo1996), [Honghu Pan](), [Qaing Wang](), [Chao Tian](), [Chao Yang](), [Zhenyu He]()
+
 [ACM MM'24]() | [arXiv]() | [GitHub]() | [Project Page]()
-<!-- ### [Paper]() -->
-:white_check_mark:
 
 
 
 
 ## TODO list {ignore=true}
 :heavy_check_mark: upload base resource code
+
 :x: update weights
+
 :x: update related datasets
+
 :x: update datasets processing scripts
+
 :x: update evaluation scripts
+
 :x: update generated thermal images from different methods
   
 ## Update {ignore=true}
 - [2024-07-30] upload base resource code
 
-
-[TOC]
 
 ## User guide
 
