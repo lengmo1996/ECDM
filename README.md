@@ -2,9 +2,9 @@
 # ECDM <!-- omit in toc -->
 This is the official repository of our work: Data Generation Scheme for Thermal Modality with Edge-Guided Adversarial Conditional Diffusion Model (ACM MM'24)
 
-[Guoqing Zhu](https://github.com/lengmo1996), [Honghu Pan](), [Qaing Wang](https://blackjack2015.github.io/), Chao Tian, Chao Yang, [Zhenyu He](https://www.hezhenyu.cn/)
+[Guoqing Zhu](https://github.com/lengmo1996), Honghu Pan, [Qaing Wang](https://blackjack2015.github.io/), Chao Tian, Chao Yang, [Zhenyu He](https://www.hezhenyu.cn/)
 
-[ACM MM'24](https://openreview.net/forum?id=GSmdnRqbpD) | [arXiv]() | [GitHub](https://github.com/lengmo1996/ECDM) | [Project Page](https://github.com/lengmo1996/ECDM)
+[ACM MM'24](https://openreview.net/forum?id=GSmdnRqbpD) | arXiv | [GitHub](https://github.com/lengmo1996/ECDM) | Project Page
 
 
 
@@ -31,7 +31,7 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
     - [1.1 Docker (Recommended)](#11-docker-recommended)
     - [1.2 Conda (Recommended)](#12-conda-recommended)
     - [1.3 Pip (Python \>= 3.10)](#13-pip-python--310)
-  - [2. Data preparing](#2-data-preparing)
+  - [2. Dataset Preparation](#2-dataset-preparation)
     - [2.1 Datasets](#21-datasets)
     - [2.2 Processing datasets](#22-processing-datasets)
   - [3. Training](#3-training)
@@ -85,8 +85,12 @@ pip install -r requirements.txt
 ```
 
 
-### 2. Data preparing
+### 2. Dataset Preparation
 #### 2.1 Datasets
+We use LLVIP and PRW dataset in our experiments. You can download LLVIP dataset from [here](https://bupt-ai-cz.github.io/LLVIP/) and PRW dataset from [here](https://github.com/liangzheng06/PRW-baseline).
+
+
+
 
 #### 2.2 Processing datasets
 
@@ -117,3 +121,4 @@ pip install -r requirements.txt
 This codebase borrows from xxx
 
 ## Citation
+If you find our work helpful for your research, please consider citing the following BibTeX entry.
