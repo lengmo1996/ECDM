@@ -1,0 +1,20 @@
+seed_everything: 23
+trainer:
+  accelerator: gpu
+  strategy: 
+    class_path: DDPStrategy
+    init_args: 
+      find_unused_parameters: True
+  max_epochs: 150
+  callbacks:
+    - class_path: ecdm.callbacks.ImageLogger
+      init_args:
+        train_batch_frequency: 1000
+        val_batch_frequency: 100
+        max_images: 4
+        clamp: true
+  logger:
+    class_path: lightning.pytorch.loggers.tensorboard.TensorBoardLogger
+    init_args: 
+      save_dir: logs
+      name: tensorboard

@@ -1,0 +1,1 @@
+python main.py fit -c configs/base_config.yaml -c configs/ECDM/ecdm_second_stage.yaml --trainer.devices 0,1,2,3 

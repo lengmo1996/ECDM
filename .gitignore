@@ -19,5 +19,3 @@ data/PWR
 logs6024
 metric_lpips.txt
 src/taming-transformers
-*.yaml
-*.sh

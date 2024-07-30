@@ -1,0 +1,107 @@
+model:
+  class_path: ecdm.models.diffusion.ecdm_first_stage.ECDMFirstStage
+  init_args:
+    learning_rate: 4.5e-6
+    linear_start: 0.0015
+    linear_end: 0.0155
+    log_every_t: 200
+    timesteps: 1000
+    loss_type: l2
+    first_stage_key: "tir_img"
+    cond_stage_key: "tir_edge"
+    image_size: [512,640]
+    channels: 3
+    conditioning_key: concat
+    monitor: 'val/loss_simple_ema'
+    scheduler_config: # 100 warmup steps
+      class_path: ecdm.lr_scheduler.LambdaLinearSchedulerWithMultiStep
+      init_args:
+        warm_up_steps: [100]
+        cycle_lengths: [10000000000000]
+        f_start: [0.5e-6]
+        f_max: [1.]
+        f_min: [1.]
+        milestones: [7500,15000]
+        gamma: 0.1
+
+    unet_config:
+      class_path: ecdm.modules.diffusionmodules.simple_unet.SimpleUNet
+      init_args:
+        image_size: [512,640]
+        in_channels: 6
+        out_channels: 3
+        model_channels: 128
+        attention_resolutions: [36]  
+        num_res_blocks: 2
+        channel_mult: [1, 2, 2, 2]  
+        dropout: 0.1
+    sample_config:
+      sample_method: "dpm"
+      sample_args:
+        noise_schedule_type: 'discrete'
+        timesteps: 5
+        dpm_solver_order: 3
+        skip_type: "time_uniform"
+        dpm_solver_method: "singlestep"
+        lower_order_final: False
+        dpm_solver_type: "taylor"
+        dpm_solver_atol: 0.0078
+        dpm_solver_rtol: 0.05
+        scale: 0.5
+        denoise: False
+        thresholding: False
+        
+    # sample_config:
+    #   sample_method: "ddim"
+    #   steps: 200
+data:
+  class_path: ecdm.data.dataset.DataModuleFromConfig
+  init_args:
+    batch_size: 1
+    num_workers: 23
+    wrap: True
+    train:
+      target: ecdm.data.dataset.LLVIPDataset
+      params:
+        root: data/LLVIP_ldm
+        size: 
+          - 512
+          - 640
+    validation:
+      target: ecdm.data.dataset.LLVIPDataset
+      params:
+        root: data/LLVIP_ldm
+        mode: test
+        size: 
+          - 512
+          - 640
+    test:
+      target: ecdm.data.dataset.LLVIPDataset
+      params:
+        root: data/LLVIP_ldm
+        mode: test
+        size: 
+          - 512
+          - 640
+
+trainer:
+  num_sanity_val_steps: 0
+  benchmark: True
+  max_epochs: 50
+  # limit_train_batches: 0.1
+  # limit_val_batches: 0.1
+  # limit_test_batches: 0.01
+  callbacks:
+    - class_path: ecdm.callbacks.ImageLogger
+      init_args:
+        train_batch_frequency: 5000
+        val_batch_frequency: 1
+        max_images: 4
+        increase_log_steps: False 
+        log_on_batch_idx: True
+  logger:
+    class_path: lightning.pytorch.loggers.tensorboard.TensorBoardLogger
+    init_args: 
+      save_dir: logs
+checkpoint_callback:
+  monitor: 'val/loss_simple_ema'
