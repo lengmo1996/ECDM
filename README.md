@@ -2,7 +2,7 @@
 # ECDM <!-- omit in toc -->
 This is the official repository of our work: Data Generation Scheme for Thermal Modality with Edge-Guided Adversarial Conditional Diffusion Model (ACM MM'24)
 
-[Guoqing Zhu](https://githubg.com/lengmo1996), [Honghu Pan](), [Qaing Wang](), [Chao Tian](), [Chao Yang](), [Zhenyu He]()
+[Guoqing Zhu](https://github.com/lengmo1996), [Honghu Pan](), [Qaing Wang](https://blackjack2015.github.io/), Chao Tian, Chao Yang, [Zhenyu He](https://www.hezhenyu.cn/)
 
 [ACM MM'24]() | [arXiv]() | [GitHub]() | [Project Page]()
 
