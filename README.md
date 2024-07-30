@@ -4,7 +4,7 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 
 [Guoqing Zhu](https://github.com/lengmo1996), [Honghu Pan](), [Qaing Wang](https://blackjack2015.github.io/), Chao Tian, Chao Yang, [Zhenyu He](https://www.hezhenyu.cn/)
 
-[ACM MM'24]() | [arXiv]() | [GitHub]() | [Project Page]()
+[ACM MM'24](https://openreview.net/forum?id=GSmdnRqbpD) | [arXiv]() | [GitHub](https://github.com/lengmo1996/ECDM) | [Project Page](https://github.com/lengmo1996/ECDM)
 
 
 
