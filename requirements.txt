@@ -1,0 +1,7 @@
+lightning==2.2.2
+omegaconf==2.1.1
+einops==0.8.0
+tqdm
+taming-transformers-rom1504
+jsonargparse[signatures]==4.32.0
+tensorboard==2.17.0
