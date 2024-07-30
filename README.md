@@ -1,5 +1,5 @@
 :new: [2024-07-30] upload base resource code
-# ECDM
+# ECDM <!-- omit in toc -->
 This is the official repository of our work: Data Generation Scheme for Thermal Modality with Edge-Guided Adversarial Conditional Diffusion Model (ACM MM'24)
 
 [Guoqing Zhu](https://githubg.com/lengmo1996), [Honghu Pan](), [Qaing Wang](), [Chao Tian](), [Chao Yang](), [Zhenyu He]()
@@ -9,7 +9,7 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 
 
 
-## TODO list {ignore=true}
+## TODO list <!-- omit in toc -->
 :heavy_check_mark: upload base resource code
 
 :x: update weights
@@ -22,8 +22,28 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 
 :x: update generated thermal images from different methods
   
-## Update {ignore=true}
+## Update <!-- omit in toc -->
 - [2024-07-30] upload base resource code
+
+## Contents <!-- omit in toc -->
+- [User guide](#user-guide)
+  - [1. Environment configuration](#1-environment-configuration)
+    - [1.1 Docker (Recommended)](#11-docker-recommended)
+    - [1.2 Conda (Recommended)](#12-conda-recommended)
+    - [1.3 Pip (Python \>= 3.10)](#13-pip-python--310)
+  - [2. Data preparing](#2-data-preparing)
+    - [2.1 Datasets](#21-datasets)
+    - [2.2 Processing datasets](#22-processing-datasets)
+  - [3. Training](#3-training)
+    - [3.1 Training first stage model](#31-training-first-stage-model)
+    - [3.2 Training second stage model](#32-training-second-stage-model)
+  - [4. Evaluation](#4-evaluation)
+    - [4.1 Generating themal images](#41-generating-themal-images)
+    - [4.2 Evaluation](#42-evaluation)
+  - [5. Computing model Flops](#5-computing-model-flops)
+  - [6. Pre-trained models](#6-pre-trained-models)
+- [Acknowledgments](#acknowledgments)
+- [Citation](#citation)
 
 
 ## User guide
