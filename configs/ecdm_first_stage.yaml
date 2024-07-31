@@ -63,14 +63,14 @@ data:
     train:
       target: ecdm.data.dataset.LLVIPDataset
       params:
-        root: data/LLVIP_ldm
+        root: data/LLVIP
         size: 
           - 512
           - 640
     validation:
       target: ecdm.data.dataset.LLVIPDataset
       params:
-        root: data/LLVIP_ldm
+        root: data/LLVIP
         mode: test
         size: 
           - 512
@@ -78,7 +78,7 @@ data:
     test:
       target: ecdm.data.dataset.LLVIPDataset
       params:
-        root: data/LLVIP_ldm
+        root: data/LLVIP
         mode: test
         size: 
           - 512
