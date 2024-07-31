@@ -193,7 +193,6 @@ def get_all_fid(dataset1, dataset2, log_file):
 
 
 if __name__ == "__main__":
-    log_file = "metric_lpips_psnr.txt"
     log_file = "metric_fid.txt"
     real_path = "data/LLVIP/infrared/test"
     generated_path = "data/LLVIP/infrared/test"

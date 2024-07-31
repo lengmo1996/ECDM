@@ -1,0 +1,26 @@
+FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-devel
+
+MAINTAINER lengmo <guoqingzhu1996@gmail.com>
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh \
+    && buildDeps='git vim' \
+    && apt-get update && apt install -y $buildDeps libgl1-mesa-glx libglib2.0-0 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple lightning==2.2.2 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple omegaconf==2.1.1 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple einops==0.8.0 tqdm \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple taming-transformers-rom1504 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple jsonargparse[signatures]==4.32.0 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorboard==2.17.0 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opencv-python==4.10.0.84 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple calflops \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple clean-fid==0.1.35 \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple lpips \
+    && pip install git+https://github.com/openai/CLIP.git \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple scikit-image \
+    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple transformers \
+    && apt-get autoclean \
+    && apt-get clean \
+    && rm -rf ~/.cache/pip \
+    && rm -rf ~/.cache/pip3 \
