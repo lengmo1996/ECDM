@@ -310,7 +310,7 @@ class ECDMSecondStage(ECDMFirstStage):
                 return {key: log[key] for key in return_keys}
         return log
 
-    # 优化器配置
+
     def configure_optimizers(self):
 
         lr = self.learning_rate
@@ -331,3 +331,9 @@ class ECDMSecondStage(ECDMFirstStage):
             ]
             return opt, scheduler
         return opt, []
+
+    @torch.no_grad()
+    def generate(self, x, cond=None):
+        if cond is not None:
+            cond=self.wrap_cond(cond)
+        return self.sample(x, cond)

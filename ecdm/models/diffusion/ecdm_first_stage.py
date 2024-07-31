@@ -73,7 +73,7 @@ class ECDMFirstStage(pl.LightningModule):
         cond_stage_key=None,
         learning_rate=1.5e-6,
         already_sample=False,
-        sample_config="ddpm",
+        sample_config={"sample_method":"ddpm"},
         *args,
         **kwargs,
     ):
