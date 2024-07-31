@@ -160,10 +160,6 @@ The processed datasets can be downloaded from either [Baidu Drive]() or [Google 
 
 
 ## Acknowledgments
-
-
-
-This codebase borrows from xxx
-
+This implementation is based on / inspired by: [denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch), [improved-diffusion](https://github.com/openai/improved-diffusion) and [latent-diffusion](https://github.com/CompVis/latent-diffusion), 
 ## Citation
 If you find our work helpful for your research, please consider citing the following BibTeX entry.
