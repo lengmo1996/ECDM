@@ -14,11 +14,11 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 
 :x: update weights
 
-:x: update related datasets
+:heavy_check_mark: update related datasets
 
-:x: update datasets processing scripts
+:heavy_check_mark: update datasets processing scripts
 
-:x: update evaluation scripts
+:heavy_check_mark: update evaluation scripts
 
 :x: update generated thermal images from different methods
   
@@ -33,15 +33,19 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
     - [1.3 Pip (Python \>= 3.10)](#13-pip-python--310)
   - [2. Dataset Preparation](#2-dataset-preparation)
     - [2.1 Datasets](#21-datasets)
-    - [2.2 Processing datasets](#22-processing-datasets)
+    - [2.2 Generating edge images](#22-generating-edge-images)
   - [3. Training](#3-training)
     - [3.1 Training first stage model](#31-training-first-stage-model)
     - [3.2 Training second stage model](#32-training-second-stage-model)
+    - [3.3 Resuming training process](#33-resuming-training-process)
   - [4. Evaluation](#4-evaluation)
     - [4.1 Generating themal images](#41-generating-themal-images)
     - [4.2 Evaluation](#42-evaluation)
   - [5. Computing model Flops](#5-computing-model-flops)
-  - [6. Pre-trained models](#6-pre-trained-models)
+  - [6. Download links](#6-download-links)
+    - [6.1 Processed datasets](#61-processed-datasets)
+    - [6.2 Model weights](#62-model-weights)
+    - [6.3 Generated thermal images from other methods](#63-generated-thermal-images-from-other-methods)
 - [Acknowledgments](#acknowledgments)
 - [Citation](#citation)
 
@@ -62,12 +66,14 @@ Building image from Dockerfile
 ```bash
 # build image from Dockerfile
 docker build -t ecdm:1.0 .
+# or from the mirrors
+docker build -t ecdm:1.0 -f Dockerfile_mirror
 ```
-or Pulling from Docker Hub
+or pulling from Docker Hub
 ```bash
-docker pull xxx
+docker pull lengmo1996/ecdm:1.0
 ```
-Then creating container from image.
+Then creating container from docker image.
 ```bash
 docker run -it --shm-size 100g --gpus all -v /path_to_dataset:/path_to_dataset -v /path_to_log:/path_to_log -v /path_to_ECDM:/path_to_ECDM --name ECDM ecdm:1.0 /bin/bash
 ```
@@ -89,28 +95,56 @@ pip install -r requirements.txt
 #### 2.1 Datasets
 We use LLVIP and PRW dataset in our experiments. You can download LLVIP dataset from [here](https://bupt-ai-cz.github.io/LLVIP/) and PRW dataset from [here](https://github.com/liangzheng06/PRW-baseline).
 
+#### 2.2 Generating edge images
+We use [scripts/generate_edge_img.py](scripts/generate_edge_img.py) to generate edge images. You should modify the ==lines 19-20== to specify your custom dataset path. Then, execute the following command to generate the edge images::
+```bash
+python scripts/generate_edge_img.py
+```
+This method applies a high-pass filter to the original images. Edge images can also be obtained by other edge detection methods, such as [pidinet](https://github.com/hellozhuo/pidinet) or [teed](https://github.com/xavysp/TEED).
 
-
-
-#### 2.2 Processing datasets
 
 ### 3. Training
 #### 3.1 Training first stage model
-
+Please modify the ==lines 66, 73, 81== in [configs/ecdm_first_stage.yaml](configs/ecdm_first_stage.yaml) to specify your custom paths. Then, run the following command to train the first stage model:
+```bash
+python main.py fit -c configs/base_config.yaml -c configs/ecdm_first_stage.yaml --trainer.devices 0,1,2,3 
+```
 #### 3.2 Training second stage model
+Please modify the ==lines 74, 81, 89== in [configs/ecdm_second_stage.yaml](configs/ecdm_second_stage.yaml) to your custom paths. Additionally, modify ==line 16== to point to the path of the first stage model weight. Then, run the following command to train the second stage model:
+```bash 
+python main.py fit -c configs/base_config.yaml -c configs/ecdm_second_stage.yaml --trainer.devices 0,1,2,3 
+```
+If you want to generalize the model to the PRW dataset, please use the configuration of [configs/ecdm_second_stage_with_PRW.yaml](configs/ecdm_second_stage_with_PRW.yaml).
 
-
-
+#### 3.3 Resuming training process
+If you want to resume the training process, please use the argument '--ckpt_path'. For example:
+```bash
+python main.py fit -c configs/base_config.yaml -c configs/ecdm_second_stage.yaml --trainer.devices 0,1,2,3 --ckpt_path 'logs/checkpoints/last.ckpt'
+```
 
 ### 4. Evaluation
 #### 4.1 Generating themal images
+For evaluation, we need to run the following command to generate thermal images:
+```bash
+python main.py test -c configs/base_config.yaml -c configs/ecdm_second_stage.yaml --trainer.devices 0,1,2,3 --ckpt_path 'logs/checkpoints/last.ckpt'
+```
 
 #### 4.2 Evaluation
+Please modify the ==lines 196-198== in [scripts/metrics.py](scripts/metrics.py) to your custom paths. Then, run the following command to train the second stage model:
+```bash 
+python scripts/metrics.py
+```
 
 ### 5. Computing model Flops
+You can obtain the number of parameters and FLOPs of the sampling process using the script located at [scripts/compute_flops_macs_params.py](scripts/compute_flops_macs_params.py)
 
+### 6. Download links
+#### 6.1 Processed datasets
+The processed datasets can be downloaded from either [Baidu Drive]() or [Google Drive]().
+#### 6.2 Model weights
 
-### 6. Pre-trained models
+#### 6.3 Generated thermal images from other methods
+
 
 
 
