@@ -42,13 +42,6 @@ class MyLightningCLI(LightningCLI):
                 "checkpoint_callback.save_weights_only": False,
             }
         )
-        # parser.set_defaults({"checkpoint_callback.filename": "latest-epoch_{epoch}-iter_{global_step:.0f}",
-        #                      "checkpoint_callback.monitor": "global_step",
-        #                      "checkpoint_callback.mode": "max",
-        #                      "checkpoint_callback.every_n_train_steps": 3000,
-        #                      "checkpoint_callback.dirpath": "/debug",
-        #                      "checkpoint_callback.save_top_k": -1,
-        #                      "checkpoint_callback.auto_insert_metric_name": False})
         parser.add_lightning_class_args(OnExceptionCheckpoint, "exception_callback")
         parser.set_defaults(
             {
@@ -81,26 +74,6 @@ class MyLightningCLI(LightningCLI):
             default=False,
             help="scale base-lr by ngpu * batch_size * n_accumulate",
         )
-        # parser.link_arguments()
-        # 回调持久化问题
-        # parser.add_argument("--experiment_name", default=SOME_NAME_DEFAULT)
-        # parser.add_argument("--checkpoint_filename", default=SOME_FILENAME_DEFAULT)
-
-        # cfg_name=
-        # ckptdir = os.path.join(logdir, "checkpoints")
-        # cfgdir = os.path.join(logdir, "configs")
-        # if opt.vscode_debug:
-
-        #     nowname = "debug_" + now + name + opt.postfix
-        # else:
-        #     nowname = now + name + opt.postfix
-        # logdir = os.path.join(opt.logdir, nowname)
-        # parser.add_lightning_class_args(ModelCheckpoint, "checkpoint_callback")
-        # parser.link_arguments(
-        #     ("logdir", "checkpoint_filename"),
-        #     "checkpoint_callback.filename",
-        #     compute_fn=lambda x, y: "-".join([x, y])
-        # )
 
     def before_instantiate_classes(self) -> None:
         now = datetime.datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
