@@ -21,6 +21,7 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 :heavy_check_mark: update evaluation scripts
 
 :x: update generated thermal images from different methods
+:x: support more sampler
   
 ## Update <!-- omit in toc -->
 - [2024-07-30] upload base resource code
@@ -130,11 +131,21 @@ python main.py test -c configs/base_config.yaml -c configs/ecdm_second_stage.yam
 ```
 
 #### 4.2 Evaluation
-Please modify the ==lines 196-198== in [scripts/metrics.py](scripts/metrics.py) to your custom paths. Then, run the following command to train the second stage model:
+Please modify the ==lines 196-198== in [scripts/metrics.py](scripts/metrics.py) to your custom paths. Then, run the following command to evaluate the second stage model:
 ```bash 
 python scripts/metrics.py
 ```
-
+Note: If version of scikit-image >= 0.16, you may trigger the following error
+```bash
+cannot import name 'compare_ssim' from 'skimage.measure'. 
+```
+To fix this bug, you may need to modify the lines ==23-25== in /opt/conda/lib/python3.10/site-packages/lpips/\_\_init\_\_.py.
+```bash
+def dssim(p0, p1, range=255.):
+    from skimage.metrics import structural_similarity
+    return (1 - structural_similarity(p0, p1, data_range=range, channel_axis=2)) / 2.
+```
+More information can be found in [GitHub issue](https://github.com/williamfzc/stagesepx/issues/150) and [release note of scikit-image 0.16.2 (2019-10-22)](https://scikit-image.org/docs/stable/release_notes/release_0.16.html#scikit-image-0-16-1-2019-10-11).
 ### 5. Computing model Flops
 You can obtain the number of parameters and FLOPs of the sampling process using the script located at [scripts/compute_flops_macs_params.py](scripts/compute_flops_macs_params.py)
 
