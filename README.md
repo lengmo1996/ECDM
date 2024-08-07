@@ -151,7 +151,8 @@ You can obtain the number of parameters and FLOPs of the sampling process using 
 
 ### 6. Download links
 #### 6.1 Processed datasets
-The processed datasets can be downloaded from either [Baidu Drive]() or [Google Drive]().
+Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), PRW
+Google Drive: LLVIP, PRW
 #### 6.2 Model weights
 
 #### 6.3 Generated thermal images from other methods
