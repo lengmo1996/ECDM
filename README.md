@@ -21,6 +21,7 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 :heavy_check_mark: update evaluation scripts
 
 :x: update generated thermal images from different methods
+
 :x: support more sampler
   
 ## Update <!-- omit in toc -->
@@ -151,7 +152,7 @@ You can obtain the number of parameters and FLOPs of the sampling process using 
 
 ### 6. Download links
 #### 6.1 Processed datasets
-Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), PRW
+Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), [PRW]
 #### 6.2 Model weights
 
 #### 6.3 Generated thermal images from other methods
