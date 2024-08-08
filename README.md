@@ -152,7 +152,7 @@ You can obtain the number of parameters and FLOPs of the sampling process using 
 
 ### 6. Download links
 #### 6.1 Processed datasets
-Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), [PRW]
+Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), [PRW](https://pan.baidu.com/s/1jRaL7_euDliu9XV0YDNR6A?pwd=45hb)
 #### 6.2 Model weights
 
 #### 6.3 Generated thermal images from other methods
