@@ -4,7 +4,7 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 
 [Guoqing Zhu](https://github.com/lengmo1996), Honghu Pan, [Qaing Wang](https://blackjack2015.github.io/), Chao Tian, Chao Yang, [Zhenyu He](https://www.hezhenyu.cn/)
 
-[ACM MM'24](https://openreview.net/forum?id=GSmdnRqbpD) | arXiv | [GitHub](https://github.com/lengmo1996/ECDM) | Project Page
+[ACM MM'24](https://openreview.net/forum?id=GSmdnRqbpD) | [arXiv](https://arxiv.org/abs/2408.03748) | [GitHub](https://github.com/lengmo1996/ECDM) | Project Page
 
 
 
@@ -154,7 +154,8 @@ You can obtain the number of parameters and FLOPs of the sampling process using 
 #### 6.1 Processed datasets
 Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), [PRW](https://pan.baidu.com/s/1jRaL7_euDliu9XV0YDNR6A?pwd=45hb)
 #### 6.2 Model weights
-
+First stage weight:
+Second stage weight:
 #### 6.3 Generated thermal images from other methods
 
 
