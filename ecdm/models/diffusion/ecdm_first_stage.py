@@ -513,14 +513,6 @@ class ECDMFirstStage(pl.LightningModule):
 
         log_prefix = "train" if self.training else "val"
 
-        loss_dict.update({f"{log_prefix}/loss_simple": loss.mean()})
-        loss_simple = loss.mean() * self.l_simple_weight
-
-        loss_vlb = (self.lvlb_weights[t] * loss).mean()
-        loss_dict.update({f"{log_prefix}/loss_vlb": loss_vlb})
-
-        loss = loss_simple + self.original_elbo_weight * loss_vlb
-
         loss_dict.update({f"{log_prefix}/loss": loss})
 
         return loss, loss_dict
@@ -593,8 +585,8 @@ class ECDMFirstStage(pl.LightningModule):
             c = self.get_input(batch, self.cond_stage_key)
             warpped_c = self.wrap_cond(c)
             with self.ema_scope():
-                samples, intermediates = self.sample(
-                    x, cond=warpped_c, return_intermediates=False
+                samples, intermediates = self.ddim_sample(
+                    warpped_c, steps=200, return_intermediates=False
                 )
                 log["x_samples"] = samples
             log["img_id"] = batch["img_id"]
