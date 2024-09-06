@@ -20,11 +20,12 @@ This is the official repository of our work: Data Generation Scheme for Thermal 
 
 :heavy_check_mark: update evaluation scripts
 
-:x: update generated thermal images from different methods
+:heavy_check_mark: update generated thermal images from different methods
 
 :x: support more sampler
   
 ## Update <!-- omit in toc -->
+- [2024-09-07] upload generated thermal images
 - [2024-07-30] upload base resource code
 
 ## Contents <!-- omit in toc -->
