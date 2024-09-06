@@ -157,8 +157,7 @@ Baidu Drive: [LLVIP](https://pan.baidu.com/s/1Py5IJWVRAGDAYZqzYxaMlA?pwd=uh21), 
 First stage weight:
 Second stage weight:
 #### 6.3 Generated thermal images from other methods
-
-
+The generated thermal images which used for visualization: [Baidu Drive](https://pan.baidu.com/s/1UGk85ofm242hDVfZme6Nuw?pwd=qyu2).
 
 
 ## Acknowledgments
