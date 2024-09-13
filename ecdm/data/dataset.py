@@ -283,7 +283,7 @@ class LLVIPDataset(Dataset):
         self.mode = mode
         assert self.mode in ["train", "full", "test"]
         self.path = Path(root)
-        assert self.path.exists(), "The pathfile of KAIST dataset is not exist."
+        assert self.path.exists(), "The pathfile of LLVIP dataset is not exist."
         self.edge_type = edge_type
         assert self.edge_type in ["high_filter", "pidinet", "teed"]
 
@@ -360,10 +360,10 @@ class LLVIPDataset(Dataset):
         tir_img = Image.open(thermal_path)
         tir_HF_img = Image.open(thermal_HF_path)
 
-        vis_img = vis_img.convert("L")
-        vis_HF_img = vis_HF_img.convert("L")
-        tir_img = tir_img.convert("L")
-        tir_HF_img = tir_HF_img.convert("L")
+        vis_img = vis_img.convert("RGB")
+        vis_HF_img = vis_HF_img.convert("RGB")
+        tir_img = tir_img.convert("RGB")
+        tir_HF_img = tir_HF_img.convert("RGB")
 
         vis_img = self.transform(vis_img)
         vis_HF_img = self.transform(vis_HF_img)
