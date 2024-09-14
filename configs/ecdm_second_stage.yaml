@@ -12,7 +12,7 @@ model:
     image_size: [512,640]
     channels: 3
     conditioning_key: concat
-    monitor: 'val/loss_simple_ema'
+    monitor: 'val/loss_ema'
     first_stage_ckpt: "checkpoints/last.ckpt"
     scheduler_config: # 100 warmup steps
       class_path: ecdm.lr_scheduler.LambdaLinearSchedulerWithMultiStep
